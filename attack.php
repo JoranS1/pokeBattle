@@ -1,5 +1,5 @@
 <?php
-class Attack{
+class Attack extends Pokemon{
     public $name;
     public $damage;
 

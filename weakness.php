@@ -1,5 +1,6 @@
 <?php
-    class Weakness{
+    
+    class Weakness extends Pokemon{
         public $weak;
 
     public function __construct($weak)

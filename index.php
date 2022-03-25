@@ -2,7 +2,7 @@
 require('attack.php');
 require('resistance.php');
 require('weakness.php');
-
+require('type.php');
 
 
 
@@ -17,11 +17,11 @@ class Pokemon{
     private $weakness;
 
 
-protected function __construct($name, $energyType,$maxHP,$attack,$health,$resistance,$weakness, $resist, $weak){
+protected function __construct($name, $energyType,$maxHP,$attack,$health, $resist, $weak, $dmg){
     $this->name = $name;
-    $this->energyType = $energyType;
+    $this->energyType = new Type($energyType, $weak, $resist);
     $this->maxHP = $maxHP;
-    $this->attack = $attack;
+    $this->attack = new Attack($attack, $dmg);
     $this->health = $health;
     $this->resistance = new Resistance($resist);
     $this->weakness = new Weakness($weak);
@@ -32,5 +32,8 @@ protected function __construct($name, $energyType,$maxHP,$attack,$health,$resist
 public static function getPopulation(){
     return pokemon::$count;
 }
+
+
+
 }
 ?>
