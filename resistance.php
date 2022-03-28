@@ -4,7 +4,7 @@ class Resistance extends Pokemon{
     public $resist;
 
 
-protected function __construct($resist){
+public function __construct($resist){
     $this->resist = $resist;
 }
 }
