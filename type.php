@@ -2,7 +2,7 @@
     require('resistance.php');
     require('weakness.php');
 
-    class Type extends Pokemon{
+    class Type {
         public $energyType;
         public $weakness;
         public $resistance;

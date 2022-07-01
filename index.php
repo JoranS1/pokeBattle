@@ -1,7 +1,9 @@
 <?php
 require('attack.php');
 require('type.php');
-
+require('resistance.php');
+require('weakness.php');
+require('type.php');
 
 
 class Pokemon{

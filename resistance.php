@@ -1,6 +1,6 @@
 <?php
 
-class Resistance extends Pokemon{
+class Resistance{
     public $resist;
 
 
