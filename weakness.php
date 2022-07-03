@@ -1,11 +1,13 @@
 <?php
     
     class Weakness {
-        public $weak;
+        public $weakType;
+        public $weakMultiplier;
 
-    public function __construct($weak)
+    public function __construct($weakType, $weakMultiplier)
     {
-        $this->weak = $weak;
+        $this->weakType = $weakType;
+        $this->weakMultiplier = $weakMultiplier;
     }    
     }
 ?>

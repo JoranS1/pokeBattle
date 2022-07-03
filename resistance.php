@@ -1,11 +1,13 @@
 <?php
-
+require('attack.php');
 class Resistance{
-    public $resist;
+    public $resistType;
+    public $restistMultiplier;
 
 
-public function __construct($resist){
-    $this->resist = $resist;
+public function __construct($resistType, int $resistMultiplier){
+    $this->resistType = $resistType;
+    $this->restistMultiplier = $resistMultiplier;
 }
 }
 ?>

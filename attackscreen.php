@@ -1,5 +1,5 @@
 <?php
-    require("index.php");
+    require("functions.php");
 ?>
 
 <!DOCTYPE html>
@@ -12,8 +12,8 @@
 </head>
 <body>
     <?php 
-        $pokemon1 = new Pokemon('Pikachu', 'Electric', 21, 'Thunderbolt', 21, 'Grass', 'Water', 9);
-        $pokemon2 = new Pokemon('Braviary', 'Flying', 40, 'Wing Attack', 40, 'Fighting', 'Electric', 10);
+        $pokemon1 = new Pikachu; 
+        $pokemon2 = new Pidgey;
     
     
     while($pokemon1->health > 0 && $pokemon2->health > 0){
