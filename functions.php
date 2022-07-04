@@ -18,19 +18,34 @@ class Pokemon{
     protected $weakInt;
     protected $resistInt;
 
-public function __construct(string $name,  $energyType, int $maxHP, $healing, $attack, $resist, $weak, ){
+public function __construct(string $name,  $energyType, int $maxHP, $healing, $attack, $resist, $weakness){
     $this->name = $name;
     $this->energyType = new Type($energyType);
     $this->maxHP = $maxHP;
     $this->attack = $attack;
     $this->health = $healing;
     $this->resistance = $resist;
-    $this->weakness = $weak;
+    $this->weakness = $weakness;
     self::$count++;
 
 }
+public function damageCalculate($attackName, $attackingPokemon){
+    	if($this->weakness[0]->weakType === $attackingPokemon->energyType){
+            $attacking = $this->weakness[0]->weakMultiplier * $attackingPokemon->attack[$attackName]->attackDmg;
+        }
+        else if($this->resistance[0]->resistType === $attackingPokemon->energyType){
+            $attacking = $attackingPokemon->attack[$attackName]->attackDmg - $this->resistance->restistMultiplier;
+        }
+        else{
+            $attacking = $attackingPokemon->attack[$attackName]->attackDmg;
+        }
+        $this->maxHP = $this->maxHP - $attacking;
+        print_r($this->namePokemon . "'s has " . $this->maxHP . " hp left <br><br><br>");
+}
 
 }
+
+
 
 class Pikachu extends Pokemon{
     public function __construct(){

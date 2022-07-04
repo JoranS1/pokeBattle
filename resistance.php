@@ -1,5 +1,5 @@
 <?php
-require('attack.php');
+
 class Resistance{
     public $resistType;
     public $restistMultiplier;
