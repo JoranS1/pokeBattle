@@ -1,9 +1,9 @@
 <?php
-require('attack.php');
-require('type.php');
-require('resistance.php');
-require('weakness.php');
-require('type.php');
+require 'attack.php';
+require 'type.php';
+require 'resistance.php';
+require 'weakness.php';
+require 'type.php';
 
 
 class Pokemon{
@@ -18,7 +18,7 @@ class Pokemon{
     protected $weakInt;
     protected $resistInt;
 
-public function __construct(string $name, $energyType, int $maxHP, $healing,  $attack, $resist, $weakness){
+public function __construct(string $name, $energyType, int $maxHP, int $healing,  $attack, $resist, $weakness){
     $this->name = $name;
     $this->energyType = $energyType;
     $this->maxHP = $maxHP;
@@ -39,8 +39,8 @@ public function damageCalculate($attackName, $attackingPokemon){
         else{
             $attacking = $attackingPokemon->attack[$attackName]->attackDmg;
         }
-        $this->maxHP = $this->maxHP - $attacking;
-        print_r($this->name . "'s has " . $this->maxHP . " hp left <br><br><br>");
+        $this->maxHP = $this->getHealth() - $attacking;
+        print_r($this->getName(). "'s has " . $this->getHealth() . " hp left <br><br><br>");
 }
     public function __toString()
     {
@@ -55,10 +55,12 @@ public function damageCalculate($attackName, $attackingPokemon){
     public function getHealth(){
         return $this->health;
     }
-
+    public function getAttack($attackNumber){
+        return $this->attack[$attackNumber]->attackNames;
+    }
 }
 
-
+// Pokemon classes starting here
 
 class Pikachu extends Pokemon{
     public function __construct(){

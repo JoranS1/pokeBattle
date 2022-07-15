@@ -1,5 +1,5 @@
 <?php
-    require("functions.php");
+    require "functions.php";
 ?>
 
 <!DOCTYPE html>
@@ -16,9 +16,29 @@
         $pokemon1 = new Pikachu(''); 
         $pokemon2 = new Pidgey('');
     
+    print_r($pokemon1->getName() . " vs " . $pokemon2->getName() . "<br><br>");
+    print_r($pokemon1->getName() . "'s health: " . $pokemon1->getHP() . "<br><br>");
+    print_r($pokemon2->getName() . "'s health: " . $pokemon2->getHP() . "<br><br>");
     
-        
+    // Pokemon 1 does a attack
+    print_r($pokemon1->getName() . " attacks with: " . $pokemon1->getAttack(0) . "<br><br>");
+    $pokemon2->damageCalculate(0, $pokemon1);
 
+    // Pokemon 2 does a attack
+    print_r($pokemon2->getName() . " attacks with: " . $pokemon2->getAttack(1) . "<br><br>");
+    $pokemon1->damageCalculate(0, $pokemon2);
+
+
+    if($pokemon1->getHealth() <= 0){
+        unset($pokemon1);
+        Pokemon::$count--;
+    }    
+    if($pokemon2->getHealth() <= 0){
+        unset($pokemon2);
+        Pokemon::$count--;
+    }
+
+    print_r("Pokemons left alive: " . Pokemon::$count--);
     ?>
 </body>
 </html>
