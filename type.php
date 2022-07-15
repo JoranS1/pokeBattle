@@ -1,6 +1,5 @@
 <?php
 
-
     class Type {
         public $energyType;
         
