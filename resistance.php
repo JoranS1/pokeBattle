@@ -5,7 +5,7 @@ class Resistance{
     public $restistMultiplier;
 
 
-public function __construct($resistType, int $resistMultiplier){
+public function __construct($resistType, $resistMultiplier){
     $this->resistType = $resistType;
     $this->restistMultiplier = $resistMultiplier;
 }
