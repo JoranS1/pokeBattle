@@ -9,4 +9,5 @@
            
         }
     }
-?>
+
+    //Idk why energyType needs to be a class i mean it's only the name of the type am I right

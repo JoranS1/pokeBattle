@@ -2,7 +2,7 @@
 class Pidgey extends Pokemon{
     public function __construct(){
         $name = "Pidgey";
-        $energyType = [new Type("Flying")];
+        $energyType = "Flying";
         $maxHP = 100;
         $attack = [new Attack("Wing Attack", 40), new Attack("Peck", 20)];
         $health = 100;

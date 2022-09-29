@@ -15,7 +15,7 @@
     <?php 
         $pokemon1 = new Pikachu(''); 
         $pokemon2 = new Pidgey('');
-    
+    echo "<br><br><br>";
     print_r($pokemon1->getName() . " vs " . $pokemon2->getName() . "<br><br>");
     print_r($pokemon1->getName() . "'s health: " . $pokemon1->getHP() . "<br><br>");
     print_r($pokemon2->getName() . "'s health: " . $pokemon2->getHP() . "<br><br>");
@@ -25,7 +25,7 @@
     $pokemon2->damageCalculate(0, $pokemon1);
 
     // Pokemon 2 does a attack
-    print_r($pokemon2->getName() . " attacks with: " . $pokemon2->getAttack(1) . "<br><br>");
+    print_r($pokemon2->getName() . " attacks with: " . $pokemon2->getAttack(0) . "<br><br>");
     $pokemon1->damageCalculate(0, $pokemon2);
 
 
@@ -38,7 +38,7 @@
         Pokemon::$count--;
     }
 
-    print_r("Pokemons left alive: " . Pokemon::$count--);
+    print_r("Pokemons left alive: " . Pokemon::$count);
     ?>
 </body>
 </html>
