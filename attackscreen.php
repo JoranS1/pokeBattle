@@ -21,11 +21,11 @@
     print_r($pokemon2->getName() . "'s health: " . $pokemon2->getHP() . "<br><br>");
     
     // Pokemon 1 does a attack
-    print_r($pokemon1->getName() . " attacks with: " . $pokemon1->getAttack(0) . "<br><br>");
+    print_r($pokemon1->getName() . " attacks with: " . $pokemon1->getAttackName(0) . "<br><br>");
     $pokemon2->damageCalculate(0, $pokemon1);
 
     // Pokemon 2 does a attack
-    print_r($pokemon2->getName() . " attacks with: " . $pokemon2->getAttack(0) . "<br><br>");
+    print_r($pokemon2->getName() . " attacks with: " . $pokemon2->getAttackName(0) . "<br><br>");
     $pokemon1->damageCalculate(0, $pokemon2);
 
 
@@ -33,7 +33,7 @@
         unset($pokemon1);
         Pokemon::$count--;
     }    
-    if($pokemon2->getHealth() <= 0){
+    else if($pokemon2->getHealth() <= 0){
         unset($pokemon2);
         Pokemon::$count--;
     }

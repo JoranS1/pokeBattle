@@ -1,7 +1,5 @@
 <?php
 
-
-
 class Pokemon{
     public static $count=0;
     protected $name;
@@ -11,8 +9,6 @@ class Pokemon{
     protected $health;
     protected $resistance;
     protected $weakness;
-    protected $weakInt;
-    protected $resistInt;
 
 public function __construct(string $name, $energyType, int $maxHP, int $healing,  $attack, $resist, $weakness){
     $this->name = $name;
@@ -25,17 +21,17 @@ public function __construct(string $name, $energyType, int $maxHP, int $healing,
     self::$count++;
 
 }
-public function damageCalculate($attackName, $attackingPokemon){
+public function damageCalculate($attackName , $attackingPokemon){
     	if($this->weakness[0]->weakType === $attackingPokemon->energyType){
-            $attacking = $this->weakness[0]->weakMultiplier * $attackingPokemon->attack[$attackName]->attackDmg;
+            $attacking = $this->weakness[0]->weakMultiplier * $attackingPokemon->attack[$attackName]->damage;
         }
         else if($this->resistance[0]->resistType === $attackingPokemon->energyType){
-            $attacking = $attackingPokemon->attack[$attackName]->attackDmg - $this->resistance->resistMultiplier;
+            $attacking = $attackingPokemon->attack[$attackName]->damage - $this->resistance[0]->resistMultiplier;
         }
         else{
-            $attacking = $attackingPokemon->attack[$attackName]->attackDmg;
+            $attacking = $attackingPokemon->attack[$attackName]->damage;
         }
-        $this->maxHP = $this->getHealth() - $attacking;
+        $this->maxHP = $this->maxHP - $attacking;
         print_r($this->getName(). "'s has " . $this->getHealth() . " hp left <br><br><br>");
 }
     public function __toString()
@@ -51,7 +47,13 @@ public function damageCalculate($attackName, $attackingPokemon){
     public function getHealth(){
         return $this->health;
     }
-    public function getAttack($attackNumber){
-        return $this->attack[$attackNumber]->attackNames;
+
+    public function getAttack()
+    {
+        return $this->attack;
+    }
+
+    public function getAttackName($attackNumber){ // getAttackName
+        return $this->attack[$attackNumber]->attackName;
     }
 }

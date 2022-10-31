@@ -58,7 +58,7 @@ public function damageCalculate($attackName, $attackingPokemon){
 
 // Pokemon classes starting here
 
-class Pikachu extends Pokemon{
+/*class Pikachu extends Pokemon{
     public function __construct(){
         $name = "Pikachu";
         $energyType = [new Type("Electric")];
@@ -84,5 +84,5 @@ class Pidgey extends Pokemon{
         parent::__construct($name, $energyType, $maxHP, $health, $attack, $resistance, $weakness);
 
     }
-}
+}*/
 ?>
