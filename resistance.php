@@ -10,4 +10,3 @@ public function __construct($resistType, $resistMultiplier){
     $this->restistMultiplier = $resistMultiplier;
 }
 }
-?>

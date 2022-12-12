@@ -10,4 +10,3 @@
         $this->weakMultiplier = $weakMultiplier;
     }    
     }
-?>

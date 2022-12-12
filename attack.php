@@ -9,4 +9,3 @@ public function __construct($attackName, $damage){
 }
 
 }
-?>
