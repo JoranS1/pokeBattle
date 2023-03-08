@@ -13,12 +13,13 @@
 <body>
     <h3>ITS TIME FOR A BATTLE OF POKEMON LETS A GOOOOO</h3>
     <?php 
-        $pokemon1 = new Pikachu(''); 
-        $pokemon2 = new Pidgey('');
+        $pokemon1 = new Pikachu(); 
+        $pokemon2 = new Pidgey();
+        //$pokemon3 = new Pokemon(0,0,0,0,0,0,0);
     echo "<br><br><br>";
     print_r($pokemon1->getName() . " vs " . $pokemon2->getName() . "<br><br>");
-    print_r($pokemon1->getName() . "'s health: " . $pokemon1->getHP() . "<br><br>");
-    print_r($pokemon2->getName() . "'s health: " . $pokemon2->getHP() . "<br><br>");
+    print_r($pokemon1->getName() . "'s health: " . $pokemon1->getHealth() . "<br><br>");
+    print_r($pokemon2->getName() . "'s health: " . $pokemon2->getHealth() . "<br><br>");
     
     // Pokemon 1 does a attack
     print_r($pokemon1->getName() . " attacks with: " . $pokemon1->getAttackName(0) . "<br><br>");
@@ -29,11 +30,13 @@
     $pokemon1->damageCalculate(0, $pokemon2);
 
 
-    if($pokemon1->getHealth() <= 0){
+    if($pokemon1->getHP() <= 0){
+        print_r($pokemon1->getName() . " fainted");
         unset($pokemon1);
         Pokemon::$count--;
     }    
-    else if($pokemon2->getHealth() <= 0){
+    else if($pokemon2->getHP() <= 0){
+        print_r($pokemon2->getName() . " fainted");
         unset($pokemon2);
         Pokemon::$count--;
     }

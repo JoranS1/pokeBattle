@@ -1,6 +1,6 @@
 <?php
 
-class Pokemon{
+abstract class Pokemon{
     public static $count=0;
     protected $name;
     protected $energyType;
@@ -10,34 +10,40 @@ class Pokemon{
     protected $resistance;
     protected $weakness;
 
-public function __construct(string $name, $energyType, int $maxHP, int $healing,  $attack, $resist, $weakness){
+public function __construct(string $name, $energyType, int $maxHP, int $healing,  $attack, $resistance, $weakness){
     $this->name = $name;
     $this->energyType = $energyType;
     $this->maxHP = $maxHP;
     $this->attack = $attack;
     $this->health = $healing;
-    $this->resistance = $resist;
+    $this->resistance = $resistance;
     $this->weakness = $weakness;
     self::$count++;
 
 }
 public function damageCalculate($attackName , $attackingPokemon){
+        $attacks =  $attackingPokemon->attack[$attackName]->damage;
+        $resist =  $this->resistance[0]->resistMultiplier;
     	if($this->weakness[0]->weakType === $attackingPokemon->energyType){
-            $attacking = $this->weakness[0]->weakMultiplier * $attackingPokemon->attack[$attackName]->damage;
-            print("Its super effective");
-            print_r($this->getName(). " takes " . $attacking . " damage");
+            $attacking =  $attackingPokemon->attack[$attackName]->damage * $this->weakness[0]->weakMultiplier;
+            print("Its super effective <br><br><br>");
+            print_r($this->getName(). " takes " . $attacking . " damage <br><br><br>");
+            $this->maxHP = $this->doDmg($attacking);
         }
         else if($this->resistance[0]->resistType === $attackingPokemon->energyType){
-            $attacking = $attackingPokemon->attack[$attackName]->damage - $this->resistance[0]->resistMultiplier;
+            $attacking = $attacks * $this->resistance[0]->resistMultiplier;
+            print_r($attacks . "<br><br><br>");
+            print_r($this->resistance[0]->resistMultiplier . "<br><br><br>");
             print_r("Its not very effective!");
-            print_r($this->getName(). " takes " . $attacking . " damage");
+            print_r($this->getName(). " takes " . $attacking . " damage <br><br><br>");
+            $this->maxHP = $this->doDmg($attacking);
         }
         else{
             $attacking = $attackingPokemon->attack[$attackName]->damage;
-            print_r($this->getName(). " takes " . $attacking . " damage");
+            print_r($this->getName(). " takes " . $attacking . " damage <br><br><br>");
+            $this->maxHP = $this->doDmg($attacking);
         }
-        $this->maxHP = $this->maxHP - $attacking;
-        print_r($this->getName(). "'s has " . $this->getHealth() . " hp left <br><br><br>");
+        print_r($this->getName(). "'s has " . $this->getHP() . " hp left <br><br><br>");
 }
     public function __toString()
     {
@@ -60,5 +66,8 @@ public function damageCalculate($attackName , $attackingPokemon){
 
     public function getAttackName($attackNumber){ // getAttackName
         return $this->attack[$attackNumber]->attackName;
+    }
+    public function doDmg($attack){
+        return $this->maxHP - $attack;
     }
 }
