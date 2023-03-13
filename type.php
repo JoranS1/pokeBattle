@@ -1,5 +1,5 @@
 <?php
-
+    // Class for the type of the Pokemon that holds the name of the Pokemon
     class Type {
         public $energyType;
         

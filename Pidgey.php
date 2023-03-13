@@ -1,4 +1,5 @@
 <?php
+// Pidgey class that is a child of the Pokemon class
 class Pidgey extends Pokemon{
     public function __construct(){
         $name = "Pidgey";
